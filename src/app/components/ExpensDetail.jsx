@@ -33,10 +33,13 @@ const ExpensDetail = ({
             </div> 
         </div>
         <br/>
+       
         <div>
         <Link to="/budgetList">
             <button className="btn btn-primary mt-2" >Listo</button>
         </Link>
+        <button className="btn btn btn-warning mt-2" 
+        onClick={()=>{deleteTask(id)}}>Borrar</button>
         
         </div>
         <br/>

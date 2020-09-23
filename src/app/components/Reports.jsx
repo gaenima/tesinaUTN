@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { ConnectRepoBar } from "./ReportBarChart";
 import { ConnectRepoDona } from './ReportDonaChart';
-//import { ConnectRepoPie} from './ReportPieChart'
+import { ConnectRepoBarra} from './ReportPieChart'
 
 
 let arregloR = [];
@@ -20,7 +20,7 @@ export const Reports = () => (
     <br/>
     <br/>
 
-    {/* <ConnectRepoPie />     */}
+    <ConnectRepoBarra />    
         <br/>
         <br/>
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

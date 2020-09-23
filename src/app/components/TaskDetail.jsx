@@ -46,8 +46,8 @@ const TaskDetail = ({
         <button className="btn btn-primary mt-2" >Realizado</button>
          </Link>
      
-        {/* <button className="btn btn btn-warning mt-2" 
-        onClick={()=>{deleteTask(id)}}>Borrar</button> */}
+        <button className="btn btn btn-warning mt-2" 
+        onClick={()=>{deleteTask(id)}}>Borrar</button>
       </div>
       <br/>
       <br/>

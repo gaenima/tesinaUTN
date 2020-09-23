@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import {  Pie } from 'react-chartjs-2';
+import {  Bar } from 'react-chartjs-2';
 import {ConnectedBudgetDetail}  from './BudgetDetail'
 
-export function ReportPieChart ({expenses, budgets}){
+export function ReportBarraChart ({expenses, budgets}){
     
     const data = {
         labels: ['Monto disponible', 'Gatos totales'],
@@ -12,7 +12,7 @@ export function ReportPieChart ({expenses, budgets}){
           {
             label: 'monto ',
             display: true,
-            data: montos,
+            data: [100, -5],
            
             backgroundColor: ['rgba(10,200,70,0.6)',       
                            
@@ -42,7 +42,7 @@ export function ReportPieChart ({expenses, budgets}){
   
    }
      return (
-       <Pie data={data} options={options} />
+       <Bar data={data} options={options} />
      )
 }
 
@@ -88,4 +88,4 @@ const mapStateToProps = (state, ownProps) => {
     
   }
  
-export const ConnectRepoPie = connect(mapStateToProps)(ReportPieChart);
+export const ConnectRepoBarra = connect(mapStateToProps)(ReportBarraChart);
