@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {  Bar } from 'react-chartjs-2';
 import  { ConnectedReports} from './Reports';
 
-export function ReportBarChart ({ tasks, task, a, b, c, ownProps, groups, arreglo}){
+export function ReportBarChart ({ tasks,  arreglo}){
  
     const data = {
        labels: ['Por hacer', 'En proceso', 'Finalizado'],
@@ -34,8 +34,8 @@ export function ReportBarChart ({ tasks, task, a, b, c, ownProps, groups, arregl
         yAxes:[
           {
             ticks:{
-              min: 0,
-              max: 10,
+              min: 0 ,
+              max: tasks.max,
               stepSize: 1
             }
           }

@@ -11,19 +11,19 @@ export const BudgetDetail = ({  budgets, name, amountInitial, amountFinal,
             {name} 
             
         </h2>
-        <h2>
+        <h2> 
             {amountInitial}
         </h2>
         <h2>   {amountFinal} </h2>
    
       <div  >   
       <div className="card p-2 mt-2" >
-              <h2 >Monto inicial</h2>
+              <h2>Monto inicial</h2>
              
           { budgets.map(budget=>(
             <Link to={`/budgetD/${budget.id}`} key={budget.id}>
-         <div className="text-right">
-          $    { budget.amountInitial } 
+         <div className="text-right" id="disponible">
+          $  { budget.amountInitial } 
           </div>
           </Link> 
           ))}
@@ -34,7 +34,7 @@ export const BudgetDetail = ({  budgets, name, amountInitial, amountFinal,
                   
                         <h2 >Gastos totales </h2>
                                                 
-                        <div className="text-right">
+                        <div className="text-right" id="gastos">
                         $  { total = expenses.reduce(function(accumulator, expens){
                             return accumulator += parseFloat(expens.amount)
                         },0)}  </div>
