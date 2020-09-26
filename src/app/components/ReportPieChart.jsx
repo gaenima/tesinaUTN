@@ -14,7 +14,7 @@ export function ReportBarraChart ({expenses, budgets, disp, amountInitial}){
           {
             label: 'monto ',
             display: false,
-            data: [900, -500],
+            data: budgets,
             
            
             backgroundColor: ['rgba(10,200,70,0.6)',       
@@ -80,33 +80,39 @@ export function ReportBarraChart ({expenses, budgets, disp, amountInitial}){
 //   console.log("MONTOSSSSS",montos, initial, totalG, disponiM);
 //     return  montos;  
 //}
-const montosDG = (budgets) => {
+const montosDG = (budgets, total) => {
   const bars = [];
-  
-  {budgets.map(bud=> <div> key={bud.id}  {bud.amountInitial}</div>)}
-  let g = 0;
-  let d = 0;
+
  
-  console.log("d......",d);
-  bars.push(d,g);
+
+  let d = document.getElementById("disponible");
+  let dis =  d.childNodes[1];
+  let dispo = (dis);
+
+  let g = document.getElementById("gastos");
+  let gas = g.childNodes[1];
+
+  console.log("disponible......",d);
+  console.log("dis...",dis, typeof(dis));
+  console.log("dispo...",dispo);
+
+  console.log("gastos......",g);
+  console.log("gas...", gas);
+  bars.push(dis.data, gas.data);
+
+  
+  console.log("bars.....",bars);
+ 
   return bars;
+  
 }
 
 
 const mapStateToProps = (state, ownProps) => {
-  let amountInitial=ownProps.amountInitial
-  let budgetID = ownProps.id;
- return {
-  name: ownProps.name,
-  id:budgetID, 
-  expenses: state.expenses
-  .filter(expens=>expens.bud === budgetID),
   
-  budgets:montosDG(state.budgets),
-  amountInitial,
+ return {
    
-   budgets:state.budgets,
-  // montos:getMonto(state.expenses)
+  budgets:montosDG(state.budgets)
  }
   
 }
