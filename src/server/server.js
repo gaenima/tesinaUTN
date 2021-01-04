@@ -6,6 +6,7 @@ import './initialize-db';
 import { authenticationRoute } from './authenticate';
 import path from 'path';
 import { connect } from "react-redux";
+import { deleteTask } from "../app/store/mutations";
 
 let port = process.env.PORT || 7789;
 let app = express();
@@ -63,6 +64,11 @@ app.post("/task/update", async (req, res) => {
   await updateTask(task);
   res.status(200).send();
 });
+app.delete("/task/delete", async (req,res) => {
+  let task = req.body.task;
+  deleteTask(task);
+  res.status(200).send();
+})
 
 //BUDGET
 app.use(cors(), bodyParser.urlencoded({ extended: true }), bodyParser.json());

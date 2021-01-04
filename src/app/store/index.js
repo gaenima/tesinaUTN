@@ -7,9 +7,9 @@ const sagaMiddleware = createSagaMiddleware();
  //import * as sagas from "./sagas.mock";
 import * as sagas from "./sagas";
 import * as mutations from "./mutations";
-import currentItem from './reducers/currentItem';
-import results from './reducers/results';
-import suggestions from './reducers/suggestions';
+//import currentItem from './reducers/currentItem';
+//import results from './reducers/results';
+//import suggestions from './reducers/suggestions';
 
 // //import { taskCreationSaga } from './sagas.mock';
 
@@ -32,9 +32,9 @@ export const store = createStore(
         }
           
       },
-      currentItem,
-      results,
-      suggestions,
+      // currentItem,
+      // results,
+      // suggestions,
 
         tasks(tasks=[], action){
             switch(action.type){
@@ -71,15 +71,9 @@ export const store = createStore(
                             ? { ...task, group: action.groupID }
                             : task;
                     });
-                   
-                    //  case mutations.DELETE_TASK:
-                    //    return tasks.filter(task => {
-                    //      return (task.id !== action.taskID) 
-                    //     ? {...task
-
-                    //      }
-                    //      : task;
-                    //    })
+                   case mutations.DELETE_TASK:
+                   return tasks.filter((task)=> task.id !== action.id)
+                                                                                                           
             }
             return tasks;
         },
@@ -103,17 +97,17 @@ export const store = createStore(
                   ?  {...expens, name: action.name} 
                   : expens;
                 });
-              case mutations.SET_EXPENS_AMOUNT:   
-                   
+
+              case mutations.SET_EXPENS_AMOUNT:    
                  return expenses.map(expens=>{
                      return (expens.id === action.expensID) 
                      ? {...expens, amount: action.amount} 
                     : expens;
                    })
-              //  case mutations.DELETE_EXPENS:
-              //    return {
-              //      ...expenses.filter(expens => expens !== action.id)
-              //    }    
+
+              case mutations.DELETE_EXPENS:
+                return expenses.filter((exp)=> exp.id !== action.id)
+                  
           }          
           return expenses;
         },

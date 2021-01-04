@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import * as mutations from "../store/mutations";
 
 const TaskDetail = ({
@@ -45,9 +45,16 @@ const TaskDetail = ({
         <Link to="/dashboard">
         <button className="btn btn-primary mt-2" >Realizado</button>
          </Link>
-     
+
+         <Link to="/dashboard">
         <button className="btn btn btn-warning mt-2" 
-        onClick={()=>{deleteTask(id)}}>Borrar</button>
+        onClick={
+          ()=>{ if(window.confirm('¿Borrar actividad?')) 
+          { deleteTask(id) }                 
+         }
+        }>Borrar</button> 
+        </Link>
+
       </div>
       <br/>
       <br/>

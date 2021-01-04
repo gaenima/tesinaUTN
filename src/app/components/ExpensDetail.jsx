@@ -36,10 +36,16 @@ const ExpensDetail = ({
        
         <div>
         <Link to="/budgetList">
-            <button className="btn btn-primary mt-2" >Listo</button>
+        <button className="btn btn-primary mt-2" >Listo</button>
         </Link>
+
+        <Link to="/budgetList">
         <button className="btn btn btn-warning mt-2" 
-        onClick={()=>{deleteTask(id)}}>Borrar</button>
+        onClick={()=>{if(window.confirm('¿Eliminar gasto?'))
+        {deleteExpens(id)}
+    }
+        }>Borrar</button>
+        </Link>
         
         </div>
         <br/>

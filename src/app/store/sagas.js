@@ -134,11 +134,10 @@ export function* expensModificationSaga() {
 
 //  export function* taskDeleteSaga(){
 //    while (true) {
-//     const task = yield put(mutations.deleteTask(id));
+//     const task = yield delete(mutations.deleteTask());
 //     axios.delete(url + `/task/id`, {
 //       task: { id: task.taskID},
 //     }) ;
 //    }
 //  }
 
-// 

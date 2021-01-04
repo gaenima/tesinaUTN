@@ -5,8 +5,7 @@ import {BudgetDetail, ConnectedBudgetDetail}  from './BudgetDetail'
 
 
 export function ReportBarraChart ({expenses, budgets, disp, amountInitial}){
- 
-    
+  
     const data = {
         labels: ['Monto disponible', 'Gatos totales'],
         datasets: [
@@ -15,16 +14,17 @@ export function ReportBarraChart ({expenses, budgets, disp, amountInitial}){
             label: 'monto ',
             display: false,
             data: budgets,
+  
+            backgroundColor: 
             
-           
-            backgroundColor: ['rgba(10,200,70,0.6)',       
+            ['rgba(10,200,70,0.6)',       
                            
-                           'rgba(150,19,100, 0.6)'],
-   
-          }          
+            'rgba(150,19,100, 0.6)']
+           
+          } ,  
         ]
-     }
-     //console.log("disponible",disp);
+      }
+     
      const options = {
        title: {
          display: true,
@@ -82,9 +82,6 @@ export function ReportBarraChart ({expenses, budgets, disp, amountInitial}){
 //}
 const montosDG = (budgets, total) => {
   const bars = [];
-
- 
-
   let d = document.getElementById("disponible");
   let dis =  d.childNodes[1];
   let dispo = (dis);
@@ -99,20 +96,27 @@ const montosDG = (budgets, total) => {
   console.log("gastos......",g);
   console.log("gas...", gas);
   bars.push(dis.data, gas.data);
-
-  
+ 
   console.log("bars.....",bars);
  
   return bars;
-  
 }
+
+
+
+           
+  
+
+  
 
 
 const mapStateToProps = (state, ownProps) => {
   
  return {
    
-  budgets:montosDG(state.budgets)
+  budgets:montosDG(state.budgets),
+  
+ 
  }
   
 }

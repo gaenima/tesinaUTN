@@ -4,18 +4,23 @@ import { requestTaskCreation } from "../store/mutations";
 import { Link } from "react-router-dom";
 
  export const TaskList = ({ tasks, name, id, createNewTask }) => (
-     <div className="card p-4 m-2">
+     <div className="card p-3 col-6">
         <h3>
          {name}
+        
         
         </h3>
        
         <div>
             
          {tasks.map(task=>(
+            
             <Link to={`/task/${task.id}`} key={task.id}>
-                <div className="card p-2 mt-2" >{task.name}</div>
-            </Link>))}
+                <div className="card p-2 col-6" >{task.name}</div>
+            </Link> ))}
+           
+          
+
         </div>
         
             <button onClick={() => createNewTask(id)}
@@ -24,18 +29,26 @@ import { Link } from "react-router-dom";
         </div>
  )
 
- const mapStateToProps = (state, ownProps ) => {
-  let groupID = ownProps.id; 
-  return {
-    name: ownProps.name,
-    id: groupID,
-    tasks: state.tasks.filter((task) => 
-    task.group === groupID
+//  const mapStateToProps = (state, ownProps ) => {
+//   let groupID = ownProps.id; 
+//   return {
+//     name: ownProps.name,
+//     id: groupID,
+//     tasks: state.tasks.filter((task) => 
+//     task.group === groupID
                 
-   )
+//    )
    
-  } 
+//   } 
+// };
+const mapStateToProps = (state, {name, id})=>{
+    return {
+        name:name,
+        tasks: state.tasks.filter(task=>task.group === id),
+        id
+    };
 };
+
  const mapDispatchToProps = (dispatch, ownProps) => {
   return {
   createNewTask(id) {

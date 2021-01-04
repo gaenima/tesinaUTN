@@ -1,16 +1,16 @@
  import React from "react";
  import { connect } from "react-redux";
  import { ConnectedTaskList } from "./TaskList";
- import { ConnectedFilter } from './Filter'
+ //import { ConnectedFilter } from './Filter'
  import { Link } from 'react-router-dom';
 
- export const Dashboard = ({ groups}) => (
+ export const Dashboard = ({ groups, tasks}) => (
   <div className="row-lg">
 
-          <div className="col-small">
+          {/* <div className="col-small">
               <ConnectedFilter />
           </div> 
-     
+      */}
      
      {groups.map(group=>(
         <ConnectedTaskList key={group.id} id={group.id} name={group.name} 
